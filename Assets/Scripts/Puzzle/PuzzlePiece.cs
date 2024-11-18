@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Ubongo.PuzzlePieces
 {
-    public class PuzzlePiece : MonoBehaviour, IHighlightable, IClickable
+    public class PuzzlePiece : MonoBehaviour, IHighlightable, IClickable, ISelectable
     {
 
         [SerializeField] private GameObject m_puzzleHighlight;
@@ -31,6 +31,18 @@ namespace Ubongo.PuzzlePieces
         {
             Debug.Log("item clicked: " + gameObject.name);
             Highlight();
+        }
+
+        public void Select()
+        {
+            Debug.Log("item clicked: " + gameObject.name);
+            Highlight();
+        }
+
+        public void Deselect()
+        {
+            m_IsHighlighted = false;
+            m_puzzleHighlight.SetActive(false);
         }
     }
 }

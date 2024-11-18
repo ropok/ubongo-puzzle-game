@@ -5,6 +5,7 @@ public class ClickManager : MonoBehaviour
 {
 
     private GameObject _selectedPuzzle;
+    private GameObject _previousPuzzle;
 
     private void Update()
     {
@@ -16,22 +17,46 @@ public class ClickManager : MonoBehaviour
 
             if (!hit) return;
 
-            // add click interaction
-            IClickable clickable = hit.collider.GetComponent<IClickable>();
-            if (clickable == null) return;
-            clickable?.Click();
-
-            // set the previous selected clear
             if (_selectedPuzzle != null)
+                _previousPuzzle = _selectedPuzzle;
+
+            ClearPreviousPuzzle(_previousPuzzle);
+
+            _selectedPuzzle = GetSelectedPuzzle(hit);
+
+
+            if (_selectedPuzzle == _previousPuzzle)
             {
-                var clickablePuzzle = _selectedPuzzle.GetComponent<IClickable>();
-                clickablePuzzle?.Click();
+                ClearPreviousPuzzle(_selectedPuzzle);
+                ClearPreviousPuzzle(_previousPuzzle);
+                _selectedPuzzle = null;
+                _previousPuzzle = null;
             }
 
-            // store the selected puzzle
-            _selectedPuzzle = hit.collider.gameObject;
-
-
         }
+    }
+
+    private GameObject GetSelectedPuzzle(RaycastHit2D hit)
+    {
+        // add click interaction
+        ISelectable selectable = hit.collider.GetComponent<ISelectable>();
+
+        if (selectable == null) return null;
+        selectable?.Select();
+
+        return hit.transform.gameObject;
+    }
+
+    private void ClearPreviousPuzzle(GameObject selectedPuzzle)
+    {
+        if (selectedPuzzle == null) return;
+
+        // set the previous selected clear
+        var selectablePuzzle = _selectedPuzzle.GetComponent<ISelectable>();
+        selectablePuzzle?.Deselect();
+        Debug.Log("Deselected");
+
+        selectedPuzzle = null;
+
     }
 }
