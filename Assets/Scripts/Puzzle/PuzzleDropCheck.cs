@@ -1,13 +1,16 @@
-﻿using UnityEngine;
+﻿using Assets.Scripts.Puzzle.Interfaces;
+using UnityEngine;
 using UnityEngine.EventSystems;
 
 namespace Assets.Scripts.Puzzle
 {
-    public class PuzzleDropCheck : MonoBehaviour, IEndDragHandler
+    public class PuzzleDropCheck : MonoBehaviour, IEndDragHandler, IDroppable
     {
+
+        private bool _isValidDrop;
+        public bool IsValidDrop => _isValidDrop;
+
         private Vector2 _initialPosition;
-        public bool _IsValidDrop { get; set; }
-        private bool _isValidDrop => _IsValidDrop;
 
         private void Awake()
         {
@@ -19,8 +22,17 @@ namespace Assets.Scripts.Puzzle
             if (!_isValidDrop)
             {
                 transform.localPosition = _initialPosition;
+                return;
             }
+
+            _isValidDrop = false;
         }
+
+        public void DroppingPuzzle()
+        {
+            _isValidDrop = true;
+        }
+
 
     }
 }
