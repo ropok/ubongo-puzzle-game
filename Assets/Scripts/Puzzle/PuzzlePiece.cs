@@ -17,19 +17,16 @@ namespace Ubongo.PuzzlePieces
 
             if (m_IsHighlighted)
             {
-                Debug.Log("item highlighted: " + gameObject.name);
                 m_puzzleHighlight.SetActive(true);
             }
             else if (!m_IsHighlighted)
             {
-                Debug.Log("item not highlighted anymore: " + gameObject.name);
                 m_puzzleHighlight.SetActive(false);
             }
         }
 
         public void Select()
         {
-            Debug.Log("item clicked: " + gameObject.name);
             Highlight();
         }
 

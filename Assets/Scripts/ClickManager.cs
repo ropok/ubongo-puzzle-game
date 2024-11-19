@@ -54,7 +54,6 @@ public class ClickManager : MonoBehaviour
         // set the previous selected clear
         var selectablePuzzle = _selectedPuzzle.GetComponent<ISelectable>();
         selectablePuzzle?.Deselect();
-        Debug.Log("Deselected");
 
         selectedPuzzle = null;
 
