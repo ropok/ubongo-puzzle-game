@@ -17,6 +17,13 @@ namespace Assets.Scripts.Puzzle
             set => _hoveredPuzzle = value;
         }
 
+        private Vector2 _destinationPosition;
+        public Vector2 DestinationPosition
+        {
+            get => _destinationPosition;
+            set => _destinationPosition = value;
+        }
+
         private Vector2 _initialPosition;
 
         private void Awake()
@@ -33,6 +40,13 @@ namespace Assets.Scripts.Puzzle
                 return;
             }
 
+            // place the puzzle snap into base position
+            if (_destinationPosition != Vector2.zero)
+            {
+                transform.position = _destinationPosition;
+            }
+
+            // reset status
             _isValidDrop = false;
         }
 

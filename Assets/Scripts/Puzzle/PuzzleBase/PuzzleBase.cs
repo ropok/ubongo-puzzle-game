@@ -17,6 +17,8 @@ namespace Assets.Scripts.Puzzle.PuzzleBase
             droppable.DroppingPuzzle();
             droppable.HoveredPuzzle += 1;
 
+            droppable.DestinationPosition = transform.position;
+
             _isOccupied = true;
 
             _droppedPuzzle = collision.gameObject;
