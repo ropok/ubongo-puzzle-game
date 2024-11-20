@@ -52,7 +52,7 @@ public class ClickManager : MonoBehaviour
         if (selectedPuzzle == null) return;
 
         // set the previous selected clear
-        var selectablePuzzle = _selectedPuzzle.GetComponent<ISelectable>();
+        var selectablePuzzle = _selectedPuzzle?.GetComponent<ISelectable>();
         selectablePuzzle?.Deselect();
 
         selectedPuzzle = null;
