@@ -1,7 +1,7 @@
-using Assets.Scripts.Puzzle;
+using Ubongo.Puzzle.Interfaces;
 using UnityEngine;
 
-namespace Ubongo.PuzzlePieces
+namespace Ubongo.Puzzle.PuzzlePiece
 {
     public class PuzzlePiece : MonoBehaviour, IHighlightable, ISelectable
     {

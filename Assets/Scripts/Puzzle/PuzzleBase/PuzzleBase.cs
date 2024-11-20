@@ -1,7 +1,7 @@
-﻿using Assets.Scripts.Puzzle.Interfaces;
+﻿using Ubongo.Puzzle.Interfaces;
 using UnityEngine;
 
-namespace Assets.Scripts.Puzzle.PuzzleBase
+namespace Ubongo.Puzzle.PuzzleBase
 {
     public class PuzzleBase : MonoBehaviour
     {

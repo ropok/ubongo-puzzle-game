@@ -1,4 +1,4 @@
-﻿namespace Ubongo.PuzzlePieces
+﻿namespace Ubongo.Puzzle.Interfaces
 {
     public interface IHighlightable
     {

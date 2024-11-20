@@ -1,9 +1,8 @@
-﻿using Assets.Scripts.Puzzle.Interfaces;
-using Ubongo.PuzzlePieces;
+﻿using Ubongo.Puzzle.Interfaces;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace Assets.Scripts.Puzzle
+namespace Ubongo.Puzzle.PuzzlePiece
 {
     public class PuzzleDropCheck : MonoBehaviour, IEndDragHandler, IDroppable
     {
