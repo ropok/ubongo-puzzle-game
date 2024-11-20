@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.Puzzle.Interfaces;
+using Ubongo.PuzzlePieces;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -6,6 +7,8 @@ namespace Assets.Scripts.Puzzle
 {
     public class PuzzleDropCheck : MonoBehaviour, IEndDragHandler, IDroppable
     {
+
+        [SerializeField] private PuzzlePiece m_puzzlePieces;
 
         private bool _isValidDrop;
         public bool IsValidDrop => _isValidDrop;
@@ -29,6 +32,8 @@ namespace Assets.Scripts.Puzzle
         private void Awake()
         {
             _initialPosition = transform.localPosition;
+            m_puzzlePieces = GetComponent<PuzzlePiece>();
+
         }
 
         public void OnEndDrag(PointerEventData eventData)
@@ -44,6 +49,7 @@ namespace Assets.Scripts.Puzzle
             if (_destinationPosition != Vector2.zero)
             {
                 transform.position = _destinationPosition;
+                m_puzzlePieces.Deselect();
             }
 
             // reset status
