@@ -10,6 +10,13 @@ namespace Assets.Scripts.Puzzle
         private bool _isValidDrop;
         public bool IsValidDrop => _isValidDrop;
 
+        private int _hoveredPuzzle;
+        public int HoveredPuzzle
+        {
+            get => _hoveredPuzzle;
+            set => _hoveredPuzzle = value;
+        }
+
         private Vector2 _initialPosition;
 
         private void Awake()
@@ -19,9 +26,10 @@ namespace Assets.Scripts.Puzzle
 
         public void OnEndDrag(PointerEventData eventData)
         {
-            if (!_isValidDrop)
+            if (!_isValidDrop || _hoveredPuzzle > 1)
             {
                 transform.localPosition = _initialPosition;
+                _hoveredPuzzle = 0;
                 return;
             }
 
@@ -31,6 +39,11 @@ namespace Assets.Scripts.Puzzle
         public void DroppingPuzzle()
         {
             _isValidDrop = true;
+        }
+
+        public void HoveringPuzzle()
+        {
+            _hoveredPuzzle += 1;
         }
 
 

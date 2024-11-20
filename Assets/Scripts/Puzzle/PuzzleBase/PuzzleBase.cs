@@ -15,6 +15,7 @@ namespace Assets.Scripts.Puzzle.PuzzleBase
             Debug.Log($"TriggerEnter: {collision.gameObject.name}");
             IDroppable droppable = collision.GetComponent<IDroppable>();
             droppable.DroppingPuzzle();
+            droppable.HoveredPuzzle += 1;
 
             _isOccupied = true;
 
@@ -32,10 +33,15 @@ namespace Assets.Scripts.Puzzle.PuzzleBase
             bool isSamePuzzle = _droppedPuzzle == collision.gameObject;
             if (droppable != null && isSamePuzzle)
             {
+                droppable.HoveredPuzzle -= 1;
                 _isOccupied = false;
                 _droppedPuzzle = null;
             }
 
+            if (droppable.HoveredPuzzle < 0)
+            {
+                droppable.HoveredPuzzle = 0;
+            }
         }
     }
 }
