@@ -4,5 +4,6 @@
     {
         public bool IsHighlighted { get; }
         public void Highlight();
+        public void Dehighlight();
     }
 }

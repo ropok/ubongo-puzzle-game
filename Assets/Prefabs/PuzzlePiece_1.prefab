@@ -90,6 +90,7 @@ GameObject:
   - component: {fileID: 2252511551545617942}
   - component: {fileID: 817474731521003936}
   - component: {fileID: 7122904333798413843}
+  - component: {fileID: 596553036171987548}
   m_Layer: 5
   m_Name: PuzzlePiece_1
   m_TagString: Untagged
@@ -211,7 +212,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d960dcfe6b2671440bd59795bab0c72f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_puzzleHighlight: {fileID: 6343361485065876855}
 --- !u!114 &817474731521003936
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -237,6 +237,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_puzzlePieces: {fileID: 2252511551545617942}
+--- !u!114 &596553036171987548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6155556710740789605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 782ef20dcdbfdb74f9d473cc148084ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_puzzleHighlight: {fileID: 6343361485065876855}
 --- !u!1 &6343361485065876855
 GameObject:
   m_ObjectHideFlags: 0

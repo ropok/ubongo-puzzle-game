@@ -8,6 +8,7 @@ namespace Ubongo.Puzzle.PuzzlePiece
     {
 
         [SerializeField] private PuzzlePiece m_puzzlePieces;
+        private IHighlightable _highlightable;
 
         private bool _isValidDrop;
         public bool IsValidDrop => _isValidDrop;
@@ -31,7 +32,7 @@ namespace Ubongo.Puzzle.PuzzlePiece
         private void Awake()
         {
             _initialPosition = transform.localPosition;
-            m_puzzlePieces = GetComponent<PuzzlePiece>();
+            _highlightable = m_puzzlePieces.GetComponent<IHighlightable>();
 
         }
 
@@ -48,7 +49,7 @@ namespace Ubongo.Puzzle.PuzzlePiece
             if (_destinationPosition != Vector2.zero)
             {
                 transform.position = _destinationPosition;
-                m_puzzlePieces.Deselect();
+                _highlightable?.Dehighlight();
             }
 
             // reset status

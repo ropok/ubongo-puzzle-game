@@ -41,10 +41,10 @@ namespace Ubongo.Puzzle.ClickManager
         private GameObject GetSelectedPuzzle(RaycastHit2D hit)
         {
             // add click interaction
-            ISelectable selectable = hit.collider.GetComponent<ISelectable>();
+            IHighlightable highlightable = hit.collider.GetComponent<IHighlightable>();
 
-            if (selectable == null) return null;
-            selectable?.Select();
+            if (highlightable == null) return null;
+            highlightable?.Highlight();
 
             return hit.transform.gameObject;
         }
@@ -54,8 +54,8 @@ namespace Ubongo.Puzzle.ClickManager
             if (selectedPuzzle == null) return;
 
             // set the previous selected clear
-            var selectablePuzzle = _selectedPuzzle?.GetComponent<ISelectable>();
-            selectablePuzzle?.Deselect();
+            var highlightable = _selectedPuzzle?.GetComponent<IHighlightable>();
+            highlightable?.Dehighlight();
 
             selectedPuzzle = null;
 
