@@ -1,7 +1,7 @@
 ﻿
 using UnityEngine;
 
-namespace Assets.Scripts.Puzzle.Interfaces
+namespace Ubongo.Puzzle.Interfaces
 {
     public interface IDroppable
     {

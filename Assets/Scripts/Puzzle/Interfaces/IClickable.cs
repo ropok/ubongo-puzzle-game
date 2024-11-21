@@ -1,4 +1,4 @@
-﻿namespace Assets.Scripts.Puzzle
+﻿namespace Ubongo.Puzzle.Interfaces
 {
     public interface IClickable
     {
