@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace Ubongo.Puzzle.PuzzlePiece
+namespace Ubongo.Puzzle.PuzzlePieces
 {
     public class PuzzleDragDrop : MonoBehaviour, IDragHandler
     {

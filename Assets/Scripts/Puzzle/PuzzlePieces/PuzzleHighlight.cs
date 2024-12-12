@@ -1,7 +1,7 @@
 ﻿using Ubongo.Puzzle.Interfaces;
 using UnityEngine;
 
-namespace Ubongo.Puzzle.PuzzlePiece
+namespace Ubongo.Puzzle.PuzzlePieces
 {
     public class PuzzleHighlight : MonoBehaviour, IHighlightable
     {

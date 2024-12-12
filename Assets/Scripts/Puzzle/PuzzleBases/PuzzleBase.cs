@@ -1,12 +1,14 @@
-﻿using Ubongo.Puzzle.Interfaces;
+﻿using Assets.Scripts.ScriptableObjects;
+using Ubongo.Puzzle.Interfaces;
 using UnityEngine;
 
-namespace Ubongo.Puzzle.PuzzleBase
+namespace Ubongo.Puzzle.PuzzleBases
 {
     public class PuzzleBase : MonoBehaviour
     {
         private bool _isOccupied;
         private GameObject _droppedPuzzle;
+        [SerializeField] private PuzzlePairSO m_PuzzlePairSO;
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
@@ -22,6 +24,15 @@ namespace Ubongo.Puzzle.PuzzleBase
             _isOccupied = true;
 
             _droppedPuzzle = collision.gameObject;
+
+            try
+            {
+                m_PuzzlePairSO.PuzzleBase = this;
+            }
+            catch (System.Exception e)
+            {
+                throw new System.ArgumentException($"Puzzle Base error to apply PuzzleBase on ScriptableObjects: {e}");
+            }
 
         }
 

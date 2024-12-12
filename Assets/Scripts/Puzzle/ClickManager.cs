@@ -1,10 +1,13 @@
+using Assets.Scripts.ScriptableObjects;
 using Ubongo.Puzzle.Interfaces;
+using Ubongo.Puzzle.PuzzlePieces;
 using UnityEngine;
 
-namespace Ubongo.Puzzle.ClickManager
+namespace Ubongo.Puzzle
 {
     public class ClickManager : MonoBehaviour
     {
+        [SerializeField] private PuzzlePairSO PuzzlePairSO;
 
         private GameObject _selectedPuzzle;
         private GameObject _previousPuzzle;
@@ -46,6 +49,8 @@ namespace Ubongo.Puzzle.ClickManager
             if (highlightable == null) return null;
             highlightable?.Highlight();
 
+            UpdateSelectedPuzzlePiece(hit.transform.gameObject, PuzzlePairSO);
+
             return hit.transform.gameObject;
         }
 
@@ -59,6 +64,12 @@ namespace Ubongo.Puzzle.ClickManager
 
             selectedPuzzle = null;
 
+        }
+
+        private void UpdateSelectedPuzzlePiece(GameObject puzzleObject, PuzzlePairSO puzzlePairSO)
+        {
+            var puzzlePiece = puzzleObject.GetComponent<PuzzlePiece>();
+            puzzlePairSO.PuzzlePiece = puzzlePiece;
         }
     }
 }

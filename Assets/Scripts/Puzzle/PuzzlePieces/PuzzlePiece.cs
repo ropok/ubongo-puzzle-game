@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Ubongo.Puzzle.PuzzlePiece
+namespace Ubongo.Puzzle.PuzzlePieces
 {
     public class PuzzlePiece : MonoBehaviour
     {
