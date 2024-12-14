@@ -45,11 +45,12 @@ namespace Ubongo.Puzzle
         {
             // add click interaction
             IHighlightable highlightable = hit.collider.GetComponent<IHighlightable>();
+            PuzzlePiece puzzlePiece = hit.collider.GetComponent<PuzzlePiece>();
 
             if (highlightable == null) return null;
             highlightable?.Highlight();
 
-            UpdateSelectedPuzzlePiece(hit.transform.gameObject, PuzzlePairSO);
+            UpdateSelectedPuzzlePiece(puzzlePiece, PuzzlePairSO);
 
             return hit.transform.gameObject;
         }
@@ -66,9 +67,8 @@ namespace Ubongo.Puzzle
 
         }
 
-        private void UpdateSelectedPuzzlePiece(GameObject puzzleObject, PuzzlePairSO puzzlePairSO)
+        private void UpdateSelectedPuzzlePiece(PuzzlePiece puzzlePiece, PuzzlePairSO puzzlePairSO)
         {
-            var puzzlePiece = puzzleObject.GetComponent<PuzzlePiece>();
             puzzlePairSO.PuzzlePiece = puzzlePiece;
         }
     }

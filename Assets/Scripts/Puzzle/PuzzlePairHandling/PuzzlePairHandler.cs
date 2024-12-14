@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.ScriptableObjects;
+using System.Collections.Generic;
 using Ubongo.Puzzle.PuzzleBases;
 using Ubongo.Puzzle.PuzzlePieces;
 using UnityEngine;
@@ -10,8 +11,10 @@ namespace Assets.Scripts.Puzzle.PuzzlePairHandling
         [SerializeField] private PuzzlePairsListSO m_puzzlePairsSO;
         [HideInInspector] public PuzzlePairsListSO PuzzlePairsSO;
 
-        public int IndexPuzzlePiece;
-        public int IndexPuzzleBase;
+        public int IndexPuzzlePiece = -1;
+        public int IndexPuzzleBase = 0;
+
+        private bool m_IsPuzzleMatch;
 
         private void Awake()
         {
@@ -25,20 +28,22 @@ namespace Assets.Scripts.Puzzle.PuzzlePairHandling
             }
         }
 
-        public int GetIndexPuzzlePiece(PuzzlePiece puzzlePiece)
-        {
-            var index = m_puzzlePairsSO.PuzzlePieces.IndexOf(puzzlePiece);
-            IndexPuzzlePiece = index;
 
-            return IndexPuzzlePiece;
+        public int GetPuzzleIndex<T>(T item, List<T> list)
+        {
+            var index = list.IndexOf(item);
+
+            return index;
         }
 
-        public int GetIndexPuzzleBase(PuzzleBase puzzleBase)
+        public bool IsPuzzleMatch(PuzzlePiece puzzlePiece, PuzzleBase puzzleBase)
         {
-            var index = m_puzzlePairsSO.PuzzleBases.IndexOf(puzzleBase);
-            IndexPuzzleBase = index;
+            var puzzlePieceIndex = GetPuzzleIndex<PuzzlePiece>(puzzlePiece, m_puzzlePairsSO.PuzzlePieces);
+            var puzzleBaseIndex = GetPuzzleIndex<PuzzleBase>(puzzleBase, m_puzzlePairsSO.PuzzleBases);
 
-            return IndexPuzzleBase;
+            bool isPuzzleMatch = puzzlePieceIndex == puzzleBaseIndex;
+            return isPuzzleMatch;
         }
+
     }
 }

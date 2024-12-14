@@ -227,6 +227,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1e1f8327e35ae5489fe4f440c02776d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PuzzlePairSO: {fileID: 11400000, guid: 0e412419423aff645a928943f0c34ae0, type: 2}
 --- !u!4 &515900718
 Transform:
   m_ObjectHideFlags: 0
@@ -1102,6 +1103,54 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
+--- !u!1 &1906732466
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1906732468}
+  - component: {fileID: 1906732467}
+  m_Layer: 0
+  m_Name: PuzzlePairHandler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1906732467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1906732466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a2b73c89efcf224b8dbc610a491f17c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_puzzlePairsSO: {fileID: 11400000, guid: 8e48e26959d2d0d4a821f68fb3e26944, type: 2}
+  PuzzlePairsSO: {fileID: 0}
+  IndexPuzzlePiece: -1
+  IndexPuzzleBase: 0
+--- !u!4 &1906732468
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1906732466}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 454.7035, y: 192.26918, z: -0.74996984}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1254317334283227385
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1321,3 +1370,4 @@ SceneRoots:
   - {fileID: 545060000}
   - {fileID: 204532585}
   - {fileID: 515900718}
+  - {fileID: 1906732468}
